@@ -1,4 +1,4 @@
-// Require necessary NPM packages
+// Require NPM packages
 require('dotenv').config();
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
@@ -48,15 +48,15 @@ function start() {
       case 'Exit':
         console.log('Exiting application...');
         connection.end();
-        process.exit(); // Terminate the Node.js process
+        process.exit(); 
         break;
       default:
         console.log('Invalid action!');
-        start(); // Restart the prompt in case of invalid action
+        start(); 
     }
   }).catch(err => {
     console.error('An error occurred:', err);
-    start(); // Restart the prompt in case of error
+    start(); 
   });
 }
 
@@ -72,7 +72,7 @@ function viewDepartments() {
   connection.promise().query('SELECT * FROM department')
     .then(([rows]) => {
       console.table(rows);
-      start(); // Go back to start
+      start(); 
     })
     .catch(console.log);
 }
@@ -82,7 +82,7 @@ function viewAllRoles() {
   connection.promise().query('SELECT * FROM role')
     .then(([rows]) => {
       console.table(rows);
-      start(); // Go back to start
+      start(); 
     })
     .catch(console.log);
 }
